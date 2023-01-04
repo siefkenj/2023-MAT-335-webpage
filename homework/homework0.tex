@@ -104,7 +104,7 @@ showstringspaces=false            %
 % This is where the body of the document goes
 %%%
 \begin{document}
-	\setheader{MAT335}{Homework 0}{Due: 11:59pm January 12}{}{}{}
+	\setheader{MAT335}{Homework 0}{Due: 11:59pm January 15}{}{}{}
 	In this class, we'll be doing a lot of math, but we'll also be 
 	focusing on our writing and communication skills as well as using computers
 	to simulate results and make pictures.  This homework is to help familiarize 
@@ -117,7 +117,7 @@ showstringspaces=false            %
 	that you don't understand. Dive right in!
 
 
-	You should submit your answers to parts 1 and 2 to Crowdmark.
+	You should submit your answers to parts 1 and 2 to Gradescope.
 
 	\begin{enumerate}
 		\item Prepare a 1-page \LaTeX{}\footnote{ \LaTeX{} is a programming language designed for typsetting
@@ -140,7 +140,7 @@ showstringspaces=false            %
 		For a more advanced introduction, you can read \url{https://tobi.oetiker.ch/lshort/lshort.pdf}.
 
 		You can find a \LaTeX{} template for writing your homeworks here: 
-		\url{https://github.com/siefkenj/2020-MAT-335-webpage/raw/master/homework/sample-homework.tex}
+		\url{https://github.com/siefkenj/2023-MAT-335-webpage/raw/main/homework/sample-homework.tex}
 
 
 
@@ -150,20 +150,25 @@ showstringspaces=false            %
 
 			To ``Do'' a programming exercise means (i) to write the required code \emph{with comments} explaining
 			any complicated parts, (ii) execute the code on appropriate examples and show their outputs, and 
-			(iii) upload the result to Crowdmark. You can do a {\it File>Print Preview} in your Jupyter notebook
-			and then {\it Print to file} to save your notebook output as a PDF. That PDF can be uploaded to Crowdmark.
+			(iii) upload the result to Gradescope. You can do a {\it File>Print Preview} in your Jupyter notebook
+			and then {\it Print to file} to save your notebook output as a PDF. That PDF can be uploaded to Gradescope.
 		\begin{enumerate}
 			\item Clone the {\tt homework0-intro.ipynb} into your syzygy account by clicking the link:
-				\url{https://utoronto.syzygy.ca/jupyter/user-redirect/git-pull?repo=https://github.com/siefkenj/2020-MAT-335-webpage&subPath=homework/homework0-intro.ipynb}
+				\url{https://utoronto.syzygy.ca/jupyter/user-redirect/git-pull?repo=https://github.com/siefkenj/2023-MAT-335-webpage&subPath=homework/homework0-intro.ipynb}
 
 				Alternatively, if you have installed {\tt Python} and Jupyter notebooks on your local computer, you may
-				clone the notebook from \url{https://github.com/siefkenj/2020-MAT-335-webpage/tree/master/homework}
+				clone the notebook from \url{https://github.com/siefkenj/2023-MAT-335-webpage/tree/main/homework}
 
 				When you have finished going through the {\tt intro} notebook, clone the {\tt exercises} notebook
-				and do the rest of the exercises. \emph{You will only turn in the {\tt exercises} notebook to Crowdmark.
+				and do the rest of the exercises. \emph{You will only turn in the {\tt exercises} notebook to Gradescope.
 				The {\tt intro} notebook is just for your edification}.
 				
-				\url{https://utoronto.syzygy.ca/jupyter/user-redirect/git-pull?repo=https://github.com/siefkenj/2020-MAT-335-webpage&subPath=homework/homework0-exercises.ipynb}
+				\url{https://utoronto.syzygy.ca/jupyter/user-redirect/git-pull?repo=https://github.com/siefkenj/2023-MAT-335-webpage&subPath=homework/homework0-exercises.ipynb}
+
+				{\textbf{Note:}} {The \texttt{homework0-exercises.ipynb} file has \emph{stubs} for each of
+				the programming tasks. This is, there are pre-defined functions in the notebook with the correct
+				and which accept the correct arguments. \textbf{These functions
+				do not produce the correct output.} Your job is to modify these functions so that they produce the correct output.}
 			\item Write a function called {\tt hi()} which takes a first name and a last name and prints 
 				\begin{quote}{\tt Hi \var{first name}. What is the origin of '\var{last name}'?}\end{quote}
 			\item Write a function \verb|square_the_list()| which inputs a list of numbers and returns
