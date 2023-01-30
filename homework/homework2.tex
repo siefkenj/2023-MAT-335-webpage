@@ -161,8 +161,8 @@ showstringspaces=false            %
 				and right eigenvalues of $P$ must be the same. \emph{Hint: you may use
 				facts from linear algebra about determinants and transposes.}
 
-			\item The \emph{unit $(n-1)$-symplex} is the set of all convex linear combinations
-				of $\vec e_1,\ldots,\vec e_n$. Let $S$ be the unit $(n-1)$ symplex, and let $\mathcal P:\R^n\to\R^n$
+			\item The \emph{unit $(n-1)$-simplex} is the set of all convex linear combinations
+				of $\vec e_1,\ldots,\vec e_n$. Let $S$ be the unit $(n-1)$ simplex, and let $\mathcal P:\R^n\to\R^n$
 				be the linear transformation defined by $\mathcal P(\vec x)=P\vec x$. Show that $\mathcal P(S)\subseteq S$.
 				\emph{Hint: start by showing that vectors in $S$ are probability vectors.}
 
@@ -174,7 +174,7 @@ showstringspaces=false            %
 		\item We're going to prove some linear algebra facts because, \emph{just maybe} they'll be useful.
 		
 			Let $P$ be an $n\times n$ stochastic matrix and let $\mathcal P:\R^n\to\R^n$ be the linear
-			transformation induced by $P$ (i.e., given by matrix multiplication). Let $S$ be the unit $(n-1)$-symplex.
+			transformation induced by $P$ (i.e., given by matrix multiplication). Let $S$ be the unit $(n-1)$-simplex.
 		\begin{enumerate}
 			\item Draw $S$ when $n=1$, $2$, and $3$.
 			\item Prove that $S$ is equal to the set of all probability vectors in $\R^n$.
@@ -285,7 +285,7 @@ showstringspaces=false            %
 				\item Compute the stationary distribution for CHAIN2\footnote{ You can use {\tt np.linalg.eig}
 					to compute eigenvectors and eigenvalues in Python. Read the documentation to figure out exactly
 					what the return values are!}. Does this match what you see from the empirical distribution?
-				\item Instead of computing an empirical distribution from a single realization. Let's use a bunch of realizations!
+				\item Instead of computing an empirical distribution from a single realization, let's use a bunch of realizations!
 					Suppose $r_{100}$ represents the state at step 100 of a realization of CHAIN2. Using at least 10000
 					different realizations, plot the empirical distribution of the different $r_{100}$'s. Do
 					the same for the $r_{101}$'s. Is this the same
@@ -330,7 +330,8 @@ showstringspaces=false            %
 				direct intensities. You could do this by applying {\tt np.log(\var{density array} + 1)}
 				on your data before plotting.
 
-			\item Numpy can perform matrix multiplication with the {\tt @} symbol. For example,
+			\item Numpy can perform matrix multiplication with the
+                                {\tt @} symbol. For example, the code
 				{\tt np.array([[1,2],[3,4]]) @ np.array([1,1])} will multiply the matrix
 				$\mat{1&2\\3&4}$ by the vector $\mat{1\\1}$. Many other linear algebra functions
 				can be found by typing {\tt np.linalg.\var{tab}}.
