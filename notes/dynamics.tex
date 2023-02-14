@@ -845,7 +845,7 @@ copyright.
 
 	\newpage
 	\begin{definition}[Vector Field]
-		Given a set $X$, a \emph{$n$-dimensional vector field on $X$} is a function $F:X\to \R^n$ which
+		Given a set $X$, an \emph{$n$-dimensional vector field on $X$} is a function $F:X\to \R^n$ which
 		assigns a vector to each point in $X$.
 	\end{definition}
 
@@ -927,8 +927,10 @@ copyright.
 
 	\question
 	\begin{parts}
-		\item Let $a$ be a constant. Find a non-trivial solution to the differential equation $f'(t)=af(t)$.
-		\item Consider the (boring) vector field $V:\R^1\to\R^1$ defined by $V(t)=at$. Find a non-trivial flow
+		\item Let $a$ be a constant. Find a non-trivial solution to the differential equation $f'(t)=af(t)$. For a constant $x\in \R$,
+			find
+			a solution to $f'(t)=af(t)$ that satisfies $f(0)=x$.
+		\item Consider the (boring) vector field $V:\R^1\to\R^1$ defined by $V(x)=ax$. Find a non-trivial flow
 			for the corresponding dynamical system. Is $V$ given by matrix multiplication? If so, what's the matrix?
 		\item Let $D=\mat{a&0\\0&b}$ and define the vector field $W:\R^2\to\R^2$ by $W(\vec x)=D\vec x$. Find a non-trivial
 			flow for the corresponding dynamical system.
@@ -936,7 +938,7 @@ copyright.
 			Can you give conditions on $a$ and $b$ so that $\vec 0$ is stable/unstable with respect to the corresponding
 			dynamical system? If $a$ and $b$ are complex numbers, does that change your answer?
 		\item Suppose $(W^t,\R^n)$ is a continuous dynamical system. Define what the \emph{derivative of $W^t$ with respect to
-			time} should mean. How does this relate to vector fields and flows?
+			$t$} should mean. How does this relate to vector fields and flows?
 		\item Prove that if $f:\R\to\R^n$ is a function and $M$ is a matrix, then $(Mf)'=M(f')$.
 		\item Suppose $A$ is a matrix and $A=PDP^{-1}$ where $D$ is diagonal. Further,
 			suppose $f$ is a solution to $f'(t)=Df(t)$. Find a solution to the differential equation
