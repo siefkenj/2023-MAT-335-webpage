@@ -171,13 +171,13 @@ showstringspaces=false            %
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
                 thick,main node/.style={circle,draw,font=\Large\bfseries}]
   \node[main node] (00) {00};
-  \node[main node, yshift=-1.5cm] (11) [below of=00] {11};
+  \node[main node, yshift=-.8cm] (11) [below of=00] {11};
   \node[main node] (01) [below right of=00] {01};
   \node[main node] (10) [below left of=00] {10};
 
 
   \path
-    (11) edge [loop above] (11);
+    (11) edge [loop below] (11);
 
   \path
     (00) edge [loop above] (00);
