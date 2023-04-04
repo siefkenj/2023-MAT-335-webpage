@@ -678,7 +678,9 @@ copyright.
 	\begin{parts}
 		\item Find a transition matrix, $T$, for the graph.
 		\item Find a matrix $P_1$ whose $i,j$ entry represents the probability
-			of transitioning from state $j$ to state $i$ in exactly one step.
+			of transitioning from state $j$ to state $i$ in exactly one step	\newpage
+
+			\newpage.
 		\item Find a matrix $P_2$ whose $i,j$ entry represents the probability
 			of transitioning from state $j$ to state $i$ in exactly two steps.
 		\item How do $P_2$ and $P_1^2$ relate?
@@ -1388,49 +1390,111 @@ copyright.
 	\emph{almost every} empirical measure is the same and is equal to the underlying probability measure.
 	This means, despite being deterministic, a chaotic system can be thought of as interchangeable with a
 	probability space.
-
-
-
-	\newpage
-	To really understand this situation, we need to know some things about \emph{probability theory}.
-	A central object of study in probability theory are \emph{random variables}.
-
-	\begin{definition}[Random Variable]
-		Let $Q$ be a set. A \emph{random variable with state space $Q$} is a function $X:[0,1]\to Q$.
+	
+	\begin{definition}[Probability Measure]
+		Let $\Omega$ be a set and let $\mathcal B=\{\text{open or closed subsets of $\Omega$}\}$. A
+		\emph{Probability measure on $\Omega$} is a function $\mu:\mathcal B\to \R_{\geq 0}$ that satisfies
+		\begin{enumerate}
+			\item $\mu(\,\emptyset\,)=0$,
+			\item $\mu(\Omega)=1$,
+			\item If $\{A_n\}\subseteq \mathcal B$ is a {\itshape countable} collection of disjoint
+				sets such that $\bigcup A_n\in \mathcal B$, then \[\mu\left(\bigcup A_n\right)=\sum \mu(A_n).\]
+		\end{enumerate}
+		Sets in domain of $\mu$ are called \emph{measurable sets}.
 	\end{definition}
-
-	We think of a random variable $X:[0,1]\to Q$ as a ``to be determined quantity''. Of course, if $\omega\in [0,1]$, then
-	$X(\omega)\in Q$ is an actual element of the state space. It would be incorrect to write ``$X\in Q$''.
-
-	\begin{definition}[Probability Function]
-		The \emph{probability function} on $[0,1]$, is a function
+	\begin{definition}[Invariant Measure]
+		Let $(T,\Omega)$ be a dynamical system and let $\mu$ be a probability measure on $\Omega$. The
+		measure $\mu$ is called \emph{invariant with respect to $T$} if for any measurable set $A\subseteq \Omega$,
 		\[
-			\P:\Set{\text{measureable subsets of $[0,1]$}}\to[0,1]
+			\mu(A) = \mu\Big(T^{-1}(A)\Big).
 		\]
-		that assigns every measurable subset of $[0,1]$ a number corresponding to
-		the ``percentage'' of $[0,1]$ it occupies.
 	\end{definition}
-
-	We often call elements of the domain of $\P$ \emph{events} instead of calling them sets.
+	The \emph{Carath\'edory Extension Theorem} says that any property of a probability measure on $[0,1]$ can
+	be verified by testing on intervals.
 
 	\question
-		Let $X$ and $Y$ be random variables with state space $\Set{H,T}$ defined by 
-		\[
-			X(\omega)=\begin{cases}
-				H&\text{ if $\omega > 1/2$ }\\
-				T&\text{ otherwise}
-			\end{cases}\qquad
-			Y(\omega)=\begin{cases}
-				H&\text{ if $\omega > 2/3$ }\\
-				T&\text{ otherwise}
-			\end{cases}\qquad
-		\]
+	Let $(T,\Omega=[0,1))$ be the doubling map. Throughout this question, all measures are defined on $\Omega=[0,1)$.
 	\begin{parts}
-		\item By writing $X = H$, we mean the event (set) $X^{-1}(H)=\Set{\omega\in[0,1]\given X(\omega)=H}$.
-
-			What is $\P(X=H)$ and $\P(X=T)$? If you were given a fair coin, what would the probability
-			of getting heads or tails be?
+		\item Compute $T^{-1}(\Omega)$, $T^{-1}([1/2,1))$, and $T^{-2}([1/2,1))$.
+		\item Let $\mu$ be defined by $\mu(A)=\begin{cases}1&\text{ if }1/3\in A\\0&\text{ otherwise}\end{cases}$.
+				Is $\mu$ a probability measure? Is $\mu$ invariant?
+		\item Let $\mu$ be defined by $\mu(A)=\begin{cases}1&\text{ if }1/3\in A\text{ or }2/3\in A\\0&\text{ otherwise}\end{cases}$.
+				Is $\mu$ a probability measure? Is $\mu$ invariant?
+		\item Let $\lambda$ be defined so that $\lambda([a,b])=b-a$ (provided $b\geq a$). $\lambda$ is called \emph{Lebesgue measure}.
+			Is $\lambda$ invariant?
+		\item Let $\mu_x$ be an emperical measure. Is $\mu_x$ invariant?
 	\end{parts}
+
+	\newpage
+	Probability measures solve the issues of talking about probability when there are an infinite number of possible outcomes.
+	Instead of talking about the probability of \emph{events}, probability measures assign probabilities to collections of 
+	events.
+	\begin{definition}[Generic Point]
+		If $(T,\Omega)$ is a dynamical system and $\mu$ an invariant probability measure for that system,
+		the point $x\in \Omega$ is called \emph{generic} if
+		\[
+			\mu_x = \mu.
+		\]
+	\end{definition}
+
+	Using measures, we can address earlier questions with a more rigorous footing.
+
+	\question
+	\label{mtexample}
+	Consider the family of Markov chains, $X_t$, given by the following graph.
+	\begin{center}
+	\begin{tikzpicture}[mainnode/.style={circle,fill=blue!20,minimum size=1em,inner sep=3pt]}]
+
+	    \node[mainnode] (1) at (0,0) {$0$};
+	    \node[mainnode] (2) at (2, 0)  {$1$};
+
+		\path
+		(1) edge[->, loop] node[above] {$1/2$} (1) 
+		(1) edge[->, bend left] node[above] {$1/2$}(2) 
+		(2) edge[->, bend left] node[below] {$1-t$}(1)
+		(2) edge[->, loop] node[above] {$t$} (2) 
+		;
+	\end{tikzpicture}
+	\end{center}
+	Generic realizations of $X_t$ have $0$'s $\displaystyle \frac{1-t}{3/2-t}$ portion of the time and $1$'s $\displaystyle\frac{1}{2(3/2-t)}$
+	portion of the time.
+
+	For a realization $x$ of $X_t$, we will interpret it as the binary expansion of a number in $[0,1]$.
+	\begin{parts}
+		\item Let $T$ be the doubling map. Find $\mu_x([0,1/2))$ and $\mu_x([1/2,1))$ where $x$ is a generic realization for
+			$X_t$ with $t=0,\,1/4,\,1/2,\,1$.
+		\item For each of the $x$'s from the previous part, make a ``graph'' of $\mu_x$. That is, divide $[0,1]$ into $2^n$
+			equal-length sub intervals and make a bar chart showing the measure of each sub interval. Do this for $n=1,2,3$.
+	\end{parts}
+	
+	\newpage
+		Progressively more detailed estimations of $\mu_x$:
+		\begin{center}
+			\includegraphics[width=2in]{images/markov-measure-pullback.png}
+		\end{center}
+
+	\newpage
+
+
+	\question
+	Let $X_t$ be as in \ref{mtexample}.
+	\begin{parts}
+		\item Compute the topological entropy for realization of $X_t$ for $t=0, 1/10, 1/2, 1$.
+		\item Let $x$ be a generic realization of $X_t$.
+			\begin{enumerate}
+				\item If $t=1/2$, how many subwords of length $5$ do you expect to see in the first 1000 bits of $x$?
+				\item If $t=1/10^5$, how many subwords of length $5$ do you expect to see in the first 1000 bits of $x$?
+			\end{enumerate}
+		\item Is topological entropy a good measure of how much information realizations of $X_t$ contain? Why or why not?
+		\item How many ``typical'' words of length $n$ are there in realizations of $X_t$? You may use the approximation, which
+			can be derived via Sterling's formula:
+			\[ \log\binom{n}{\alpha n}\approx -n\Big(\alpha \log\alpha +(1-\alpha)\log(1-\alpha)\Big)\]
+			for $\alpha\in (0,1)$.
+		\item What should the \emph{relative information entropy} of typical realizations of $X_t$ be? That is, how much
+			information can a ``typcial'' length $n$ word of $X_t$ contain vs. a length $n$ word with no restrictions at all?
+	\end{parts}
+
+
 
 
 % West Coastline of Britain
